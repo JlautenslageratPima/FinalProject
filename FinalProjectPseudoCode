@@ -1,0 +1,69 @@
+CIS 129 
+Final Project
+
+Objective: Come up with, research and pseudo code a solution for a real world problem, justify your choice, create a powerpoint, and submit
+
+Rubric Criteria:
+20% Problem Selection and Justification
+20% Research Depth and Relevance
+20% Clarity and Feasibility of the Proposed Solution
+20% Quality of Design Documentation
+20% Presentation Effectiveness
+
+Problem: Amazon self checkout AI Scam
+https://arstechnica.com/gadgets/2024/04/amazon-ends-ai-powered-store-checkout-which-needed-1000-video-reviewers/
+https://www.npr.org/2024/04/03/1242508931/no-more-just-walk-out-at-amazon-grocery-stores-the-new-bet-is-smart-shopping-car
+
+Steps needed
+Customer needs to be identified
+Cart needs to be identified
+Items need to be identified
+Customer and Cart need to be bound together
+Items need to be bound to cart as they enter, unbound if they leave
+If Customer puts cart on conveyor all items are scanned and charged to customer and items are removed from inventory
+Unscanned items that leave store set off security
+
+
+
+
+
+Pseudo Code
+
+/ / / / / / / / / / / / / Initialize Variables
+Set cart to empty list
+Set variable receipt to empty list
+Set variable total_Cost to 0
+Set variable tax_rate to constant
+/ / / / / / / / / / / / / Items will be named and priced from a database and retrieved
+ Def function store_Item
+retrieve item from network
+Returns tuple (item_ID,item_name,item_price)  
+ 
+/ / / / / / / / / / / / / Customer will retrieve Cart ID and enter ID into store app
+	Once cart ID is entered into app
+		Ping cart to activate shopping and initialize variables 
+	
+/ / / / / / / / / / / / /
+#Bind Item to Cart
+Def function add_To_Cart
+	If item is in cart for 3 seconds
+		Add to cart
+		Append store_item[1] to receipt
+		Add store_item[2] to price
+
+#Unbind Item from Cart
+	# Customer manually removes item from app or item is out of range. 
+Def remove_From_Cart
+If item is removed from cart
+	Remove store_item[1] from list
+	Subtract store_item[2] from receipt
+		
+/ / / / / / / / / / / / / Customer sets cart on conveyor and all items are confirmed and checkout completed.
+#Checkout
+
+Def function checkout
+	Print list
+	Set tax to Receipt * tax rate
+	Set total_Checkout to Receipt + tax
+print total_Checkout 
+	
